@@ -9,27 +9,30 @@ h1 {
 }
 body {
     height: 100vh;
-    background-color: rgb(139, 41, 107);
+    background: rgb(82, 69, 77);
 }
 
 .memoryGame {
     height: 640px;
     width: 640px;
+    position: absolute;
+    left: 33vw;
+    top: 18vh;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
-    border: 2px solid black;
+    perspective: 1000px;
 }
 
 .memoryCards {
     width: calc(20% - 10px);
     height: calc(25% - 10px);
-    padding: 20px;
+    margin: 5px;
     position: relative;
     transform: scale(1);
     transform-style: preserve-3d;
     transition: transform .5s;
-    /* box-shadow: 1px 1px 1px rgba(0,0,0,.3); */
+    /*box-shadow: 1px 1px 1px rgba(0,0,0,.3);*/
 }
 
   .memoryCards:active {
@@ -45,8 +48,14 @@ body {
 .frontCard,
 .backCard {
     width: 100%;
-    height: 100;
-    padding: 20px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
     position: absolute;
-    border: 2px solid lightgray;
+    border-radius: 10px;
+    backface-visibility: hidden;
+}
+
+.frontCard {
+    transform: rotateY(180deg);
 }
